@@ -1,50 +1,23 @@
 package services;
 
-import java.security.InvalidParameterException;
-
-public class BrazilInterestService {
+public class BrazilInterestService implements InterestService {
 
 	private double amount;
 	private int months;
 	private double interestRate;
 
-	public BrazilInterestService(double interestRate) {
+	public BrazilInterestService(double interestRate, double amount, int months) {
 		this.interestRate = interestRate;
-	}
-
-	public double getAmount() {
-		return amount;
-	}
-
-	public void setAmount(double amount) {
 		this.amount = amount;
-	}
-
-	public int getMonths() {
-		return months;
-	}
-
-	public void setMonths(int months) {
 		this.months = months;
 	}
 
+	@Override
 	public double getInterestRate() {
 		return interestRate;
 	}
 
-	public void setInterestRate(double interestRate) {
-		this.interestRate = interestRate;
-	}
-
-	public double payment(double amount, int months) {
-		if (months < 1) {
-			throw new InvalidParameterException("Months must be greater than zero.");
-		}
-		this.amount = amount;
-		this.months = months;
-		return amount * Math.pow(1.0 + interestRate / 100, months);
-	}
-
+	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("Payment after " + months + " months: \n");

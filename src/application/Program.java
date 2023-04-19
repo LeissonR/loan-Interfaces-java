@@ -4,7 +4,8 @@ import java.security.InvalidParameterException;
 import java.util.Locale;
 import java.util.Scanner;
 
-import services.UsaInterestService;
+import services.BrazilInterestService;
+import services.InterestService;
 
 public class Program {
 
@@ -18,7 +19,7 @@ public class Program {
 		System.out.print("Months: ");
 		int months = sc.nextInt();
 
-		UsaInterestService is = new UsaInterestService(1.0);
+		InterestService is = new BrazilInterestService(2.0, amount, months);
 
 		try {
 			is.payment(amount, months);
